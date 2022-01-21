@@ -26,6 +26,8 @@ jobs:
       - name: Install dependencies
         run: npm install  
       
+      - name: Serverless AWS authentication
+        run: sls config credentials --provider aws --key ${{ secrets.AWS_KEY }} --secret ${{ secrets.AWS_SECRET }}
           
       - name: Run command
         run: serverless deploy --stage slspoc
