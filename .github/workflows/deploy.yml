@@ -18,10 +18,12 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2 
-
-      - name: npm install dependencies
+      
+      - name: Install Serverless
+        run: npm install -g serverless
+      
+      - name: Install dependencies
         run: npm install  
-      - name: Serverless
-        uses: teakowadeprecated/Serverless-Action@v2.4.0
-        with:
-          args: deploy --stage slspoc
+      
+      - name: Run command
+        run: serverless deploy --stage slspoc
