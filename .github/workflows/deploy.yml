@@ -20,20 +20,40 @@ jobs:
     steps:
       - uses: actions/checkout@v2 
       
-      - name: Install Serverless
-        run: npm install -g serverless
-      
+      #- name: Install Serverless
+      #  run: npm install serverless
+            
       - name: Install dependencies
         run: npm install  
-
-      - name : Auth Sls to AWS 
-        run: serverless config credentials --provider aws --key ${{ secrets.AWS_ACCESS_KEY_ID }} --secret ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-
-      - name: Serverless deploy
-        run: serverless deploy --stage slspoc
+      
+      - name: serverless deploy
+        uses: serverless/github-action@master
+        with:
+          args: deploy --stage slspoc
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
+      #- uses: Teakowa/setup-serverless@v2.0.0
+      #  with:
+      #    provider: aws
+      #  env:
+      #    AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      #    AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY}}
+      
+      #- run: sls deploy
+
+      #- name : Auth Sls to AWS 
+      #  run: serverless config credentials --provider aws --key ${{ secrets.AWS_ACCESS_KEY_ID }} --secret ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      #  env:
+      #    AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      #    AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
+      #- name: Serverless deploy
+      #  run: serverless deploy --stage slspoc
+      #  env:
+      #    AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      #    AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       
       #- name: Run command
       #  run: serverless deploy --stage slspoc
