@@ -26,10 +26,13 @@ jobs:
       - name: Install dependencies
         run: npm install  
 
-      - name: Serverless
-        uses: serverless/github-action@v1.53.0
+      - name: serverless deploy
+        uses: tegud/serverless-github-action@1.52.0
         with:
-          args: deploy --stage slspoc
+          command: deploy --stage slspoc
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       
       #- name: Run command
       #  run: serverless deploy --stage slspoc
