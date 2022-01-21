@@ -3,6 +3,7 @@ service: aws-python-sqs-worker
 
 provider:
   name: aws
+  region: us-east-1
   runtime: python3.8
   lambdaHashingVersion: '20201221'
 
