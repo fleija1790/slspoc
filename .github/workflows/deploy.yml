@@ -1,4 +1,4 @@
-name: Serverless Deployment Example 
+name: Serverless Deployment Example v1
 
 # Triggers the action everty time there is a code push to the master branch
 on:
