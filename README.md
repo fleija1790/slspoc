@@ -1,3 +1,11 @@
+# Notes: 
+
+This is an example of a simple implementation of Serverless Framework to deploy an AWS Lambada with an HTTP endpoint and an SQS Queue. Source: `https://github.com/serverless` 
+
+The folder of Github Actions Example contains the .yml files to execute both the deployment and removal of the Stack required to deploy this example application.
+
+To run this example you will need to create `./.github/workflows/*` and place there the files to execute the Github actions. Also, you will need to provide both an AWS_ACCESS_KEY_ID and an AWS_SECRET_ACCESS_KEY as secrets in the repo configuration to authenticate to AWS.
+
 <!--
 title: 'Serverless Framework Python SQS Producer-Consumer on AWS'
 description: 'This template demonstrates how to develop and deploy a simple SQS-based producer-consumer service running on AWS Lambda using the traditional Serverless Framework.'

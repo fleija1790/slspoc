@@ -1,0 +1,25 @@
+name: Serverless Remove Example
+
+# Triggers the action everty time there is a code push to the master branch
+on:
+  workflow_dispatch:
+
+# Specify what jobs to run
+jobs:
+  remove:
+    name: Serverless Remove
+    runs-on: ubuntu-latest 
+
+    steps:
+      - uses: actions/checkout@v2 
+            
+      - name: Install dependencies
+        run: npm install  
+      
+      - name: Serverless Remove
+        uses: serverless/github-action@master
+        with:
+          args: remove --stage slspoc
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
