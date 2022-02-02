@@ -6,6 +6,11 @@ The folder of Github Actions Example contains the .yml files to execute both the
 
 To run this example you will need to create `./.github/workflows/*` and place there the files to execute the Github actions. Also, you will need to provide both an AWS_ACCESS_KEY_ID and an AWS_SECRET_ACCESS_KEY as secrets in the repo configuration to authenticate to AWS.
 
+Requirements:
+- Node JS v10.24.1
+- Serveless Framework v2.71.0
+
+
 <!--
 title: 'Serverless Framework Python SQS Producer-Consumer on AWS'
 description: 'This template demonstrates how to develop and deploy a simple SQS-based producer-consumer service running on AWS Lambda using the traditional Serverless Framework.'
